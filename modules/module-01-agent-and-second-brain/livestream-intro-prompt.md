@@ -11,6 +11,10 @@ Both share the same brand, text, and look. Paste the prompt into your video/imag
 tool (Veo, Runway, Kling, Luma, or Nano Banana / Imagen for a still), then drop the
 result into OBS as a scene.
 
+> **Rendered still:** a generated version of the title card (Prompt C, via Gemini)
+> is saved at [`assets/intro-screen.jpg`](./assets/intro-screen.jpg) — 16:9, ready
+> to drop straight into OBS.
+
 **Format:** 1920×1080 (16:9), YouTube-safe margins. Keep all text inside the
 central 80% of the frame.
 
