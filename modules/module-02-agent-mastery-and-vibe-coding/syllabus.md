@@ -82,17 +82,17 @@ shadowed or ambiguous. Checked before naming:
 
 | Wanted | Verdict | Shipped as |
 |---|---|---|
-| `/models` | `/model` is built-in — confusingly close | **`/models-research`** |
-| `/switch` | **TAKEN.** Built-in alias for `/sessions` | **`/model-switch`** |
-| `/spend` | Free, but `/usage` and `/topup` are built-ins covering nearby ground | **`/spend-report`** |
+| `/models` | `/model` is built-in, confusingly close | **`/model-research`** |
+| `/switch` | **TAKEN.** Built-in alias for `/sessions` | **`/switch-models`** |
+| `/spend` | Free, but `/usage` and `/topup` are built-ins covering nearby ground | **`/spend-tracker`** |
 
 Also built-in and worth avoiding: `/profile`, `/usage`, `/status`, `/context`, `/tools`,
 `/sessions`, `/skills`, `/background`, `/steer`, `/stop`, `/help`.
 
 > **The lesson for students:** before you name a skill, run `/help` and check the name
 > isn't taken. A shadowed skill fails silently — it just never fires, and you'll waste an
-> hour wondering why. Naming is `<noun>-<verb>`: `models-research`, `model-switch`,
-> `spend-report`.
+> hour wondering why. Add a second word so the name is unambiguous: `model-research`,
+> `switch-models`, `spend-tracker`.
 
 
 ### Demo 2 — switching, natively (2 min)
@@ -201,7 +201,7 @@ Build me three skills. Ask me anything ambiguous first, then write all three, te
 where you put them, and run each one once.
 
 ────────────────────────────────────────────────────────────
-SKILL 1 — `models-research`
+SKILL 1 — `model-research`
 Researches the current AI model landscape and writes me a briefing.
 
 CADENCE: WEEKLY, not daily. The model landscape does not move fast enough to justify
@@ -244,7 +244,7 @@ RULES: if you can't verify it, say so — never guess a price. Never mix units i
 table. Flag any price move over 30% as PRICE ALERT.
 
 ────────────────────────────────────────────────────────────
-SKILL 2 — `model-switch`
+SKILL 2 — `switch-models`
 Changes which model I'm using.
 
 Four profiles:
@@ -260,9 +260,9 @@ RUNS WHEN: I say switch to fast/smart/private, ask what model I'm on, or ask whi
 model I should use for a task.
 
 DOES:
-  - `/model-switch <profile>` switches using Hermes's native /model command and my
+  - `/switch-models <profile>` switches using Hermes's native /model command and my
     configured model_aliases. Check the Hermes docs for exact syntax first.
-  - `/model-switch` with no argument: tell me what I'm on and suggest a profile based on
+  - `/switch-models` with no argument: tell me what I'm on and suggest a profile based on
     what we're working on right now.
   - If I'm switching mid-task, WARN ME that it breaks the prompt cache and the next
     message re-reads the whole conversation at full input cost. Suggest waiting for
@@ -274,7 +274,7 @@ DOES:
     come from the briefing's AGENTIC CODING section, not its general ranking.
 
 ────────────────────────────────────────────────────────────
-SKILL 3 — `spend-report`
+SKILL 3 — `spend-tracker`
 Tracks what my AI usage costs. INCREMENTAL — never redoes work it has already done.
 
 CADENCE: WEEKLY, plus on demand whenever I ask.
@@ -337,11 +337,11 @@ spent nothing, say that in one line. Don't manufacture analysis.
 > sees when deciding whether to run it. A perfect skill with a vague description never
 > fires. **This is what you review.** Not the code. The description."
 
-- **Run `/models-research`.** Open the dated note in Obsidian. Payoff shot.
+- **Run `/model-research`.** Open the dated note in Obsidian. Payoff shot.
 - **Show the raw OpenRouter JSON for three seconds.** Students should see this is just
 *data*, not magic.
 
-> **Point out what makes `/model-switch` a good skill:** it does nothing Hermes can't already do.
+> **Point out what makes `/switch-models` a good skill:** it does nothing Hermes can't already do.
 > It adds **judgment** — the cache warning and the privacy stop. **Automating a command is a
 > shortcut. Automating a decision is a skill.**
 
@@ -410,8 +410,8 @@ every day. I don't want a full research pass every morning; that's wasted tokens
 wasted attention.
 
 At the start of the standup:
-  1. Check when `models-research` last ran (newest file in 2-Areas/AI-Models/) and when
-`spend-report` last ran (last_run in 2-Areas/AI-Costs/.spend-state.json).
+  1. Check when `model-research` last ran (newest file in 2-Areas/AI-Models/) and when
+`spend-tracker` last ran (last_run in 2-Areas/AI-Costs/.spend-state.json).
   2. If either is 7+ days old, say so in ONE line and ASK me whether to run it now.
 Don't run it without asking — it's a bigger job than a standup.
   3. If both are current, say nothing at all about them. Silence is the correct
@@ -432,12 +432,12 @@ Run `/daily-standup`.
 
 | | |
 |---|---|
-| **`/models-research`** | The landscape moves in weeks, not hours. A daily research pass burns tokens to tell you the same thing five times |
-| **`/spend-report`** | Weekly is enough to catch a bad habit before it costs real money — and because the skill is **incremental**, a weekly run covers the whole week without re-processing anything |
+| **`/model-research`** | The landscape moves in weeks, not hours. A daily research pass burns tokens to tell you the same thing five times |
+| **`/spend-tracker`** | Weekly is enough to catch a bad habit before it costs real money — and because the skill is **incremental**, a weekly run covers the whole week without re-processing anything |
 | **Both** | Available **on demand** whenever you actually want them. Cadence is a default, not a cage |
 
 **Teaching point:** three small single-purpose skills composed into one routine beats one
-giant skill — each piece can be fixed, tested and reused alone. And **`/spend-report`'s watermark is
+giant skill — each piece can be fixed, tested and reused alone. And **`/spend-tracker`'s watermark is
 the lesson in miniature:** a well-built tool remembers what it already did and refuses to
 repeat itself. That's the difference between automation and busywork.
 
@@ -743,12 +743,12 @@ Callback: HERMES.md here, SOUL.md from Part 1. *Project rules vs. who your agent
 ## Step 7 · Build (18 min)
 
 ```
-/model-switch coding
+/switch-models coding
 ```
 
 > "This is what the fourth profile is for. The best **agentic** coding model runs tools,
 > reads its own errors, and manages a multi-file project — a different leaderboard from
-> 'writes a nice function'. **Ask `/models-research` which one that is today** — I won't name one,
+> 'writes a nice function'. **Ask `/model-research` which one that is today** — I won't name one,
 > because it'll be wrong by the time you watch this."
 
 And a callback to Part 1: **we're switching at a task boundary.** Fresh session, empty
@@ -863,7 +863,7 @@ domain.
 
 # Homework
 
-1. Run `/daily-standup` **every morning for a week.** Run `/models-research` and `/spend-report` **once**
+1. Run `/daily-standup` **every morning for a week.** Run `/model-research` and `/spend-tracker` **once**
    during that week. Bring the weekly briefing and say whether weekly felt right.
 2. **Practise one task per session.** `/reset` between tasks for a whole week and report
    what changed — quality, cost, or both.
@@ -902,7 +902,7 @@ One thing that works, one that doesn't.
 ## Must verify before the stream
 - [ ] **Superpowers installs on Hermes** — authored for Claude Code, Hermes packaging is an
       open issue. Direct raw SKILL.md URLs as fallback. **Highest-risk item.**
-- [ ] **New `model_aliases` mid-session** — do they need `/reset`? Adjust the `model-switch` brief
+- [ ] **New `model_aliases` mid-session** — do they need `/reset`? Adjust the `switch-models` brief
 - [ ] Exact `hermes insights` flags and output format
 - [ ] OpenRouter endpoint + all three Artificial Analysis URLs (were 200 on 2026-08-06)
 
@@ -927,5 +927,5 @@ One thing that works, one that doesn't.
 2. **~$5 OpenRouter credit** — flag in the Luma description?
 3. **Generate images live in Step 4, or stock?** Suggest: one hero image live, stock for the
    rest.
-4. **`/models-research` daily or weekly?** The standup promises daily; the landscape doesn't move
+4. **`/model-research` daily or weekly?** The standup promises daily; the landscape doesn't move
    daily. Consider weekly deep research + daily price check.

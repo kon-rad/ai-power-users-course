@@ -53,9 +53,9 @@ By the end of this module you can:
 
 | Skill | Cadence | What it does | Why it matters |
 |---|---|---|---|
-| **`/models-research`** | **Weekly** + on demand | Researches text, image, video, TTS, speech-to-text and music models. Live pricing from public APIs and independent leaderboards. Writes a dated briefing into your vault | You stop reading "best AI tools" listicles. The data is current, sourced, and yours |
-| **`/model-switch`** | On demand | Moves between four profiles: `private` (Morpheus), `fast` (cheap), `smart` (frontier), and `coding` (best **agentic** coding model). **Stops you before sending client data to a public provider** | Automating a command is a shortcut. **Automating a decision is a skill** |
-| **`/spend-report`** | **Weekly** + on demand | **Incremental** — keeps a watermark and only ever processes usage since its last run. Reports by project and model, flags spikes, names one change to cut cost | You install the meter before you need it — and it never does the same work twice |
+| **`/model-research`** | **Weekly** + on demand | Researches text, image, video, TTS, speech-to-text and music models. Live pricing from public APIs and independent leaderboards. Writes a dated briefing into your vault | You stop reading "best AI tools" listicles. The data is current, sourced, and yours |
+| **`/switch-models`** | On demand | Moves between four profiles: `private` (Morpheus), `fast` (cheap), `smart` (frontier), and `coding` (best **agentic** coding model). **Stops you before sending client data to a public provider** | Automating a command is a shortcut. **Automating a decision is a skill** |
+| **`/spend-tracker`** | **Weekly** + on demand | **Incremental** — keeps a watermark and only ever processes usage since its last run. Reports by project and model, flags spikes, names one change to cut cost | You install the meter before you need it — and it never does the same work twice |
 
 > **Why weekly, not daily.** The model landscape moves in weeks, not hours, and a daily
 > research pass burns tokens to tell you the same thing five times. Both skills stay
@@ -64,10 +64,10 @@ By the end of this module you can:
 
 > **Why `coding` is its own profile.** The model that writes the nicest standalone function
 > is often *not* the one that can run tools, read its own errors, and manage a twelve-file
-> project without losing the plot. Those are different leaderboards, and `/models-research` reports
+> project without losing the plot. Those are different leaderboards, and `/model-research` reports
 > them separately. This is the profile the website gets built on.
 
-> **`/spend-report` is incremental by design.** It stores a watermark in `.spend-state.json`. Run it
+> **`/spend-tracker` is incremental by design.** It stores a watermark in `.spend-state.json`. Run it
 > today after running it yesterday, and it covers only since yesterday — nothing counted
 > twice, nothing researched twice. Lifetime totals come from its own stored logs, not from
 > re-querying. **A well-built tool remembers what it already did and refuses to repeat
@@ -126,7 +126,7 @@ prompt-cache penalty never applies. Reset *between* things, never *during* one: 
 build is a single long task, and you don't reset in the middle of it.
 
 **The best output is often no output.** A skill that reports "no change" every morning trains
-you to stop reading it. `/models-research` and `/spend-report` run weekly and stay silent when nothing's due.
+you to stop reading it. `/model-research` and `/spend-tracker` run weekly and stay silent when nothing's due.
 
 **Your context files are a bill.** `hermes prompt-size` tells you what `SOUL.md` costs on
 every single message. That's why the 200-line rule exists.
@@ -158,12 +158,12 @@ guide](../module-01-agent-and-second-brain/student-guide.md) takes about 45 minu
 homework.
 
 > **Note on privacy:** OpenRouter is **not private** — it's the fast, cheap option. Morpheus
-> stays your private brain. The `/model-switch` skill you build will stop you before you send
+> stays your private brain. The `/switch-models` skill you build will stop you before you send
 > client data to a public provider, but the judgment is still yours.
 
 ## Homework
 
-1. Run `/daily-standup` every morning for a week. Run `/models-research` and `/spend-report` **once** that
+1. Run `/daily-standup` every morning for a week. Run `/model-research` and `/spend-tracker` **once** that
    week. Report whether weekly felt like the right cadence.
 2. **Practise one task per session** — `/reset` between tasks for a week and report what
    changed: quality, cost, or both.

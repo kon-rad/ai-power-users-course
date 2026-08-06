@@ -38,7 +38,7 @@ ten minutes. We will store it properly in the session.
 
 > **On privacy.** Morpheus stays your private brain. OpenRouter is **not private** — it is
 > the fast and cheap option. We will be explicit about which work goes where, and the
-> `model-switch` skill you build will stop you before you send client data to a public
+> `switch-models` skill you build will stop you before you send client data to a public
 > provider.
 
 ### Bring a business
@@ -98,7 +98,7 @@ hermes config set model.aliases.smart  openrouter/<frontier-model>
 hermes config set model.aliases.coding openrouter/<best-agentic-coding-model>
 ```
 
-Fill in the model names from the briefing your `models-research` skill produces in Step 3.
+Fill in the model names from the briefing your `model-research` skill produces in Step 3.
 
 | Profile | For | Chosen on |
 |---|---|---|
@@ -146,7 +146,7 @@ This is the centrepiece. You are not writing these skills — you are describing
 > a built-in gets shadowed and silently never fires. `/switch` is already taken (it is an
 > alias for `/sessions`), and `/model`, `/profile`, `/usage`, `/status`, `/context`,
 > `/tools`, `/skills` are all built in. Run `/help` to see the list before naming anything.
-> Ours use a `<noun>-<verb>` scheme.
+> Ours all add a second word so the name is unambiguous.
 
 Paste this whole brief into Hermes:
 
@@ -155,7 +155,7 @@ Build me three skills. Ask me anything ambiguous first, then write all three, te
 where you put them, and run each one once.
 
 ────────────────────────────────────────────────────────────
-SKILL 1 — `models-research`
+SKILL 1 — `model-research`
 Researches the current AI model landscape and writes me a briefing.
 
 CADENCE: WEEKLY, not daily. The model landscape does not move fast enough to justify a
@@ -197,7 +197,7 @@ RULES: if you can't verify it, say so — never guess a price. Never mix units i
 Flag any price move over 30% as PRICE ALERT.
 
 ────────────────────────────────────────────────────────────
-SKILL 2 — `model-switch`
+SKILL 2 — `switch-models`
 Changes which model I'm using.
 
 Four profiles:
@@ -212,7 +212,7 @@ RUNS WHEN: I say switch to fast/smart/coding/private, ask what model I'm on, or 
 model I should use for a task.
 
 DOES:
-  - `/model-switch <profile>` switches using Hermes's native /model command and my
+  - `/switch-models <profile>` switches using Hermes's native /model command and my
     configured model_aliases. Check the Hermes docs for exact syntax first.
   - With no argument: tell me what I'm on and suggest a profile based on what we're
     working on right now.
@@ -226,7 +226,7 @@ DOES:
     ranking.
 
 ────────────────────────────────────────────────────────────
-SKILL 3 — `spend-report`
+SKILL 3 — `spend-tracker`
 Tracks what my AI usage costs. INCREMENTAL — never redoes work it has already done.
 
 CADENCE: WEEKLY, plus on demand whenever I ask.
@@ -279,8 +279,8 @@ description line of each.
 Now run them:
 
 ```
-/models-research
-/spend-report
+/model-research
+/spend-tracker
 ```
 
 Open the dated briefing in Obsidian. You now have a research analyst covering the entire
@@ -337,8 +337,8 @@ Update my daily-standup skill so it knows about the two new skills — but WEEKL
 day. I don't want a full research pass every morning.
 
 At the start of the standup:
-  1. Check when models-research last ran (newest file in 2-Areas/AI-Models/) and when
-     spend-report last ran (last_run in 2-Areas/AI-Costs/.spend-state.json).
+  1. Check when model-research last ran (newest file in 2-Areas/AI-Models/) and when
+     spend-tracker last ran (last_run in 2-Areas/AI-Costs/.spend-state.json).
   2. If either is 7+ days old, say so in ONE line and ASK me whether to run it now.
      Don't run it without asking.
   3. If both are current, say nothing at all about them.
@@ -515,7 +515,7 @@ where the brief and layout live, and the design direction. Keep it short.
 ## Step 7 — Build
 
 ```
-/model-switch coding
+/switch-models coding
 ```
 
 You are at a task boundary with a fresh context, so this switch costs nothing.
@@ -608,8 +608,8 @@ That is the job you are selling.
 
 ## Homework
 
-1. Run `/daily-standup` every morning for a week. Run `/models-research` and
-   `/spend-report` **once** that week. Report whether weekly felt right.
+1. Run `/daily-standup` every morning for a week. Run `/model-research` and
+   `/spend-tracker` **once** that week. Report whether weekly felt right.
 2. **Practise one task per session** — `/reset` between tasks for a week. Report what
    changed: quality, cost, or both.
 3. Get `SOUL.md` good, then **cut it under 150 lines.** Report `hermes prompt-size` before
