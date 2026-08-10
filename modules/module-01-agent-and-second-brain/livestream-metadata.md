@@ -13,7 +13,7 @@ Copy-paste metadata for the YouTube live broadcast (and any restream).
 **Alternates:**
 
 - Your Private AI Agent + Second Brain in 45 Min (No Code) — AI Power Users #1
-- Set Up a Private, Offline AI Agent Inside Your Notes — AI Power Users, Day 1 Module 1
+- Set Up a Private, Decentralized AI Agent Inside Your Notes — AI Power Users, Day 1 Module 1
 - Private AI Second Brain: Obsidian + Hermes + Morpheus (Live Build) — AI Power Users
 
 > Keep under ~70 characters where possible so it isn't truncated. Front-load the
@@ -24,8 +24,9 @@ Copy-paste metadata for the YouTube live broadcast (and any restream).
 ## Short description (for Luma / social / the first line)
 
 Set up a complete private AI stack in 45 minutes, live and free — a personal AI
-agent that lives inside your own notes, runs on a private model, and works
-offline. No coding required. Day 1, Module 1 of the AI Power Users course.
+agent that lives inside your own notes and thinks with a private, decentralized
+model. Your notes and your voice stay on your machine, with no big-tech cloud in
+the middle. No coding required. Day 1, Module 1 of the AI Power Users course.
 
 ---
 
@@ -34,9 +35,9 @@ offline. No coding required. Day 1, Module 1 of the AI Power Users course.
 ```
 Kick off the AI Power Users course — a free, hands-on, 5-day live program from the
 Global Builders Club. In this first 45-minute session we build a PRIVATE AI SECOND
-BRAIN together, step by step: a personal AI agent that lives inside your own notes,
-thinks with a private model, and keeps working with the Wi-Fi off. No single
-company in the middle. No coding required.
+BRAIN together, step by step: a personal AI agent that lives inside your own notes
+and thinks with a private, decentralized model. Your notes and your voice stay on
+your machine, with no big-tech cloud in the middle. No coding required.
 
 🌐 Course home: https://globalbuildersclub.com
 📋 Follow-along student guide (free): [link to student-guide.md]

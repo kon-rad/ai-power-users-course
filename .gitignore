@@ -22,3 +22,6 @@ dist/
 # Scratch
 scratch.*
 *.tmp
+
+# Generated Luma / promo images (kept local, not committed)
+images/

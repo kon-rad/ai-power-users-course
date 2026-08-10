@@ -354,6 +354,84 @@ standup note, written by a private AI, from your own words. Run it every morning
 
 ---
 
+## ⚡ Bonus — Faster & cheaper (not private): connect Hermes to OpenRouter
+
+Morpheus keeps everything **private**. But sometimes you want raw **speed** or the
+**lowest cost**, and the notes you're working on aren't sensitive. For that, you can
+point the *same* Hermes agent at **[OpenRouter](https://openrouter.ai)** — a single
+API that gives you hundreds of models, including many top **open-source** ones
+(Llama, Qwen, DeepSeek, Mistral, and more).
+
+> ⚠️ **Privacy trade-off — read this first.** OpenRouter is **not private.** Your
+> prompts — and any note content the agent sends — leave your machine and pass
+> through OpenRouter and its upstream providers (third-party clouds). Use it when
+> **speed and cost matter more than privacy**. For anything personal or sensitive,
+> switch back to **Morpheus** (or a fully local model — that's Day 5). Rule of thumb:
+> *public/throwaway work → OpenRouter; private/personal work → Morpheus.*
+
+Because Hermes speaks the OpenAI-compatible protocol, this is the **same two
+settings** as Step 8 — just a different base URL, key, and model.
+
+**1. Get an OpenRouter key.** Sign up at **[openrouter.ai](https://openrouter.ai)**,
+open **Keys**, and create one (it looks like `sk-or-v1-...`). Add a little credit,
+or start with a free model (below).
+
+**2. Point Hermes at OpenRouter** (replaces the two lines from Step 8):
+
+- **macOS / Linux:**
+  ```bash
+  export OPENAI_BASE_URL="https://openrouter.ai/api/v1"
+  export OPENAI_API_KEY="paste-your-openrouter-key-here"
+  ```
+- **Windows (PowerShell):**
+  ```powershell
+  $env:OPENAI_BASE_URL="https://openrouter.ai/api/v1"
+  $env:OPENAI_API_KEY="paste-your-openrouter-key-here"
+  ```
+
+**3. Pick an open-source model** and tell Hermes to use it (model slugs are
+`provider/model`):
+
+```
+/model openai:meta-llama/llama-3.3-70b-instruct
+```
+
+A free tier exists on some models — add `:free` to try one at zero cost (slower,
+rate-limited):
+
+```
+/model openai:meta-llama/llama-3.3-70b-instruct:free
+```
+
+### How to choose the best model
+
+Browse **[openrouter.ai/models](https://openrouter.ai/models)** (and the
+**[rankings](https://openrouter.ai/rankings)**) and weigh four things:
+
+- **Tool / function-calling support — required.** Hermes is an *agent*; it must call
+  tools to read and write your notes. Pick models whose card shows **"Tools"**
+  support (most modern Llama, Qwen, DeepSeek, and Mistral instruct models do).
+- **Capability** — bigger/newer instruct models reason better. Good open-source
+  starting points: `meta-llama/llama-3.3-70b-instruct`,
+  `qwen/qwen-2.5-72b-instruct`, `deepseek/deepseek-chat`.
+- **Cost** — check the price per million tokens (prompt + completion). Smaller models
+  are far cheaper; `:free` variants cost nothing.
+- **Speed & context** — the model card lists throughput/latency and context length.
+  For fast, cheap agent work, a smaller model is often the sweet spot.
+
+Try two or three on a real task and keep the one that feels best for the job.
+
+### How to update / switch models
+
+- **Any time, in Hermes:** `/model openai:NEW-PROVIDER/NEW-MODEL` (or `hermes model`
+  to see the current one). No reinstall needed.
+- **Switch back to private:** re-run the Step 8 Morpheus lines (or keep two shell
+  aliases — one for Morpheus, one for OpenRouter — and switch as needed).
+- **Stay current:** models change fast. Re-check the rankings every few weeks for a
+  newer, cheaper, or faster open-source option and just change the slug.
+
+---
+
 ## ✅ You did it
 
 You now have:
@@ -398,4 +476,6 @@ You now have:
 - Hermes — https://hermes-agent.nousresearch.com
 - Morpheus app (account + API key) — https://app.mor.org
 - Morpheus API base URL — `https://api.mor.org/api/v1`
+- OpenRouter (bonus — fast/cheap, not private) — https://openrouter.ai · models: https://openrouter.ai/models · rankings: https://openrouter.ai/rankings
+- OpenRouter API base URL — `https://openrouter.ai/api/v1`
 - PARA method (background reading) — https://fortelabs.com/blog/para/

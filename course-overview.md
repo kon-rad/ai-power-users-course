@@ -49,7 +49,7 @@ The culture of the room. They shape every lab, critique, and feedback circle.
 
 | # | Module | You will… |
 |---|---|---|
-| **1** | **Agent & Private AI Second Brain Setup** | Install the full private-AI stack (local STT, Obsidian, VS Code, Hermes agent, Morpheus LLM), wire it together with the PARA method, and build your first agent skill: a daily standup. **← detailed, live** |
+| **1** | **Agent & Private AI Second Brain Setup** | Install the full private-AI stack (local STT, Obsidian, VS Code, Hermes agent, Morpheus LLM), wire it together with the PARA method, and build your first agent skill: a daily standup. **← detailed, live** · *Bonus:* connect Hermes to open-source models via **OpenRouter** for speed/cost (not private). |
 | 2 | Hands-On: Living in Your Second Brain | Practice capturing, organising, and querying notes; run the agent on real tasks; troubleshoot common setup issues together. |
 | 3 | Peer Lab: Teach, Test & Assess | Peer exercises and assignments; explain the stack in your own words; peer-evaluated quiz on Module 1. |
 

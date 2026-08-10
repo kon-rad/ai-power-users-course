@@ -7,8 +7,9 @@ AI Power Users · Day 1 — Build Your Private AI Second Brain (Live, Free)
 ## Short blurb (for previews)
 
 Kick off the AI Power Users course. In 45 minutes we install a complete private
-AI stack — a personal agent that lives in your own notes, runs on a private model,
-and works offline. No coding needed. Free and open source.
+AI stack — a personal agent that lives in your own notes and thinks with a
+private, decentralized model. Your notes and your voice stay on your machine, with
+no big-tech cloud in the middle. No coding needed. Free and open source.
 
 ## Full description
 
@@ -17,8 +18,9 @@ the Global Builders Club.**
 
 Most people use AI by typing into someone else's website. This week you'll do
 something different: build your own **private AI second brain** — a personal AI
-agent that lives inside *your* notes, thinks with a *private* model, and keeps
-working even with the Wi-Fi off. No single company in the middle.
+agent that lives inside *your* notes and thinks with a *private, decentralized*
+model. Your notes and your voice stay on your machine, with no big-tech cloud in
+the middle. (Running the model itself fully offline is a Day 5 topic.)
 
 In this first 45-minute session we set the whole thing up together, live, step by
 step. You'll leave with a working private-AI workstation and your first custom

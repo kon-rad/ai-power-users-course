@@ -51,6 +51,9 @@ By the end of this module you can:
 4. Organise a notes folder with the PARA method and open it as an Obsidian vault.
 5. Run the Hermes agent inside that folder and connect it to Morpheus.
 6. Create and run your first agent skill — a daily standup with your AI.
+7. **(Bonus)** Switch Hermes to an open-source model via **OpenRouter** for more speed
+   and lower cost — understanding that OpenRouter is **not private**, so it's for when
+   speed and cost matter more than privacy (private work stays on Morpheus).
 
 ## Files in this module
 
