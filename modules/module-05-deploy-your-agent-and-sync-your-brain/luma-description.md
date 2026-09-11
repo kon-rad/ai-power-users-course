@@ -102,3 +102,8 @@ It contains zero width characters. Do not retype it. Copy the file.
 - DigitalOcean's new account credit was listed by third parties as 200 USD for 60 days on
   2026-08-23 but was not confirmed on a DigitalOcean page. Do not put a credit figure in
   the description unless it is read off the signup page first.
+- The student guide also documents an optional, un-timed capability: pointing the
+  laptop agent's terminal backend at the droplet over SSH so it runs commands there
+  instead of locally. It is homework, not a segment, and it is not in the description.
+  Adding it would misstate what the 60 minutes actually teaches live. Demo it only if
+  the close finishes early.

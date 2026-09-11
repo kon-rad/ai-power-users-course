@@ -80,6 +80,11 @@ neither of them authored.
 **Silence is a feature.** A sync job that reports every successful run gets muted within a
 day, and a muted monitor is not a monitor.
 
+**The SSH backend moves commands, not content.** Hermes can run the laptop agent's
+commands on the droplet directly, over the same hardened connection from Step 5. The
+vault still syncs by git, on purpose: two things writing to one folder at once is the
+failure the honest caveat already warns about.
+
 ## Files in this module
 
 - [`syllabus.md`](./syllabus.md), the full plan: every segment, every brief, host guidance
@@ -112,6 +117,8 @@ Bring an SSH key on your laptop. Check with `ls ~/.ssh/*.pub`, and run
 4. Run `docker stats` and say whether 1 GB was the right size.
 5. Set a billing alert on your DigitalOcean account.
 6. Write your write lanes into `HERMES.md` and commit it.
+7. Optional: set `terminal.backend: ssh` with a dedicated key, run one command on the
+   droplet from your laptop agent, then switch back to `local`.
 
 ## The honest caveat
 

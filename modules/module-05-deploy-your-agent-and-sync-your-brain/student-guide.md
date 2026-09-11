@@ -321,6 +321,53 @@ Then prove it: ask the server agent to write a note, open Obsidian, and read it.
 
 ---
 
+## Optional: point your laptop agent at the droplet directly
+
+Steps 1 through 8 keep your vault in sync through git. There is a second, separate
+capability worth knowing about: Hermes can run your laptop agent's commands directly on
+the droplet over SSH, instead of on your laptop.
+
+Add a `terminal` section to `~/.hermes/config.yaml`:
+
+```yaml
+terminal:
+  backend: ssh
+  ssh_host: <your-droplet-ip>
+  ssh_user: hermes
+  ssh_port: 22
+  ssh_key: ~/.ssh/<a-dedicated-key>
+  cwd: /opt/brain
+```
+
+With that in place, every command your laptop agent runs executes on the droplet as the
+`hermes` user, over the same hardened SSH connection you tested in Step 5.
+
+**What this does not do.** It does not sync your vault. The only thing it moves
+automatically is `~/.hermes/` itself (skills, cache, credentials), so both machines run
+the same skills. Your notes still move by git, exactly as Steps 7 and 8 set up. Do not
+treat this as a second sync path: two things writing to `/opt/brain` at once, one over
+SSH and one from the server's own agent, is the same failure the honest caveat in this
+module already warns about.
+
+**Before you turn it on:**
+
+- Generate a key used for nothing else, `ssh-keygen -t ed25519 -f ~/.ssh/laptop-hermes-agent`,
+  and append it to `hermes`'s `authorized_keys` on the droplet. Losing it or revoking it
+  then touches nothing but this one channel.
+- Leave `backend` set to `local` by default, and switch it to `ssh` only for the session
+  where you mean to operate on the server. Left on, unrelated local work runs on the
+  droplet by accident.
+- Set `approvals.mode: manual` while it is switched on. The `hermes` user has full
+  `sudo`, and a laptop agent with auto approved commands pointed at a sudo shell is a
+  larger blast radius than the same policy running locally.
+- The Cloud Firewall from Step 5 allows SSH from one IP address. A laptop's address
+  changes, and the day it does you are locked out of this channel with root already
+  gone. Either update the firewall rule when your IP changes, or put a Tailscale or
+  WireGuard interface between the laptop and the droplet and restrict inbound SSH to
+  that interface. The second option is the one that survives travel.
+
+---
+
 ## If something breaks
 
 | Symptom | Cause and fix |
@@ -345,6 +392,8 @@ Then prove it: ask the server agent to write a note, open Obsidian, and read it.
 4. Run `docker stats` and report whether 1 GB was the right size.
 5. Set a billing alert on your DigitalOcean account.
 6. Add a paragraph to `HERMES.md` naming which machine owns which folders, and commit it.
+7. Optional: set `terminal.backend: ssh` with a dedicated key, run one command on the
+   droplet from your laptop agent, confirm where it landed, then switch back to `local`.
 
 ---
 

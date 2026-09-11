@@ -454,6 +454,26 @@ The four things that must never sync, and why:
    call.
 5. Set a billing alert on your DigitalOcean account.
 6. Write one paragraph in `HERMES.md` naming your write lanes, and commit it.
+7. Optional: set `terminal.backend: ssh` with a dedicated key, run one command on the
+   droplet from the laptop agent, confirm where it landed, then switch back to `local`.
+
+# Optional appendix: the laptop agent as a remote backend
+
+Not a timed segment. Mention it only if the close finishes early, and point to the
+student guide rather than teaching it live.
+
+Hermes ships an SSH execution backend (`tools/environments/ssh.py`). Setting
+`terminal.backend: ssh` in `~/.hermes/config.yaml`, with `ssh_host`, `ssh_user`,
+`ssh_port` and `ssh_key`, makes the laptop agent run its commands on the droplet as the
+`hermes` user instead of locally. It only auto syncs `~/.hermes/` itself, not the vault.
+Git stays the way content moves. This is a second, unrelated capability for running
+commands remotely, not a second sync path.
+
+Three things worth saying if it comes up: a dedicated SSH key, not the daily one,
+`approvals.mode: manual` while it is switched on since `hermes` has `sudo`, and the
+Cloud Firewall's single allowed IP will lock out a laptop whose address changes, which
+is what makes Tailscale or WireGuard the safer version of this for anyone who wants to
+rely on it day to day.
 
 # Peer quiz
 
